@@ -10,7 +10,8 @@ def metadata_extracter(path="C:/Users/akiok/Google Drive/MSI/SI650/project/SI_65
 
 
     ### fetch username/dataset
-    command = 'kaggle datasets list -p1 --csv'
+    page_num = 1
+    command = 'kaggle datasets list -p{} --csv'.format(page_num)
     os.system(command)
 
     ### save into csv
@@ -18,7 +19,7 @@ def metadata_extracter(path="C:/Users/akiok/Google Drive/MSI/SI650/project/SI_65
 
     ### parse key info, aka 'ref'
     # should look like kmader/skin-cancer-mnist-ham10000
-    key_info = 'kmader/skin-cancer-mnist-ham10000'
+    key_info = ''
 
     ### download the metadata using key_info into the path of your choice
     command = 'kaggle datasets metadata {} -p "{}"'.format(key_info, path)
