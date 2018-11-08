@@ -9,7 +9,7 @@ def metadata_extracter(pages_to_loop=100, path="C:/Users/akiok/Google Drive/MSI/
     2) use the username/dataset info to retrieve metadata
     3) parse metadata for 'description', 'title', 'subtitle', 'description'
     '''
-
+    print('saving data in {}'.format(path))
 
     ### fetch username/dataset
     for page_num in range(pages_to_loop):
@@ -26,7 +26,7 @@ def metadata_extracter(pages_to_loop=100, path="C:/Users/akiok/Google Drive/MSI/
                 ref_list.append(row['ref'])
 
         ### download the metadata using key_info into the path of your choice
-        for each_ref in ref_list:
+        for idx, each_ref in enumerate(ref_list):
             json_command = 'kaggle datasets metadata {} -p "{}"'.format(each_ref, path)
             os.system(json_command)
 
@@ -37,14 +37,29 @@ def metadata_extracter(pages_to_loop=100, path="C:/Users/akiok/Google Drive/MSI/
             # keywords
 
             json_path = '{}/dataset-metadata.json'.format(path)
-            json.load(json_path)
+            fileToUse = open(json_path)
+            dataset_json = json.load(fileToUse)
 
-
-            ### parse json and save as dictionary
+            ### parse json
+            json_dataset = {}
+            json_dataset[idx] = {
+                'title': dataset_json['title'],
+                'subtitle': dataset_json['subtitle'],
+                'description': dataset_json['description'],
+                'keywords': dataset_json['keywords']
+            }
 
     ### save dictionary as csv?
-
-
+    with open('{}/dataset.csv'.format(path), 'w') as f:
+        writer = csv.writer(f)
+        writer.writerow(['title', 'subtitle', 'description', 'keywords'])
+        for i in json_dataset:
+            writer.writerow(
+                [json_dataset[i]['title'],
+                json_dataset[i]['subtitle'],
+                json_dataset[i]['description'],
+                json_dataset[i]['keywords']
+            ])
 
 if __name__ == '__main__':
     metadata_extracter(pages_to_loop=1)
