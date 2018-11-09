@@ -27,7 +27,7 @@ def metadata_extracter(pages_to_loop=100, path="/Users/hanley/Desktop/SI_650_Gro
             for row in ref_csv:
                 # print(row)
                 ref_list.append(row['ref'])
-
+        print("\nreflist: {}\n".format(ref_list))
         ### download the metadata using key_info into the path of your choice
         for idx, each_ref in enumerate(ref_list):
             json_command = 'kaggle datasets metadata {} -p "{}"'.format(each_ref, path)
@@ -52,7 +52,7 @@ def metadata_extracter(pages_to_loop=100, path="/Users/hanley/Desktop/SI_650_Gro
             }
 
     ## save dictionary as csv?
-    with open('{}/dataset.csv'.format(path), 'w') as f:
+    with open('{}/dataset.csv'.format(path), 'w', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(['title', 'subtitle', 'description', 'keywords'])
         print(json_dataset)
@@ -65,4 +65,4 @@ def metadata_extracter(pages_to_loop=100, path="/Users/hanley/Desktop/SI_650_Gro
             ])
 
 if __name__ == '__main__':
-    metadata_extracter(pages_to_loop=1)
+    metadata_extracter(pages_to_loop=2, path="C:/Users/akiok/Google Drive/MSI/SI650/project/SI_650_Group_Project")
