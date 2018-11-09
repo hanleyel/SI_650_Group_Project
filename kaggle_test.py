@@ -12,6 +12,7 @@ def metadata_extracter(pages_to_loop=100, path="/Users/hanley/Desktop/SI_650_Gro
     print('saving data in {}'.format(path))
 
     json_dataset = {}
+    counter = 0
 
     ### fetch username/dataset
     for page_num in range(pages_to_loop):
@@ -22,14 +23,14 @@ def metadata_extracter(pages_to_loop=100, path="/Users/hanley/Desktop/SI_650_Gro
         # ref should look like kmader/skin-cancer-mnist-ham10000
         filepath = '{}/dataset_name.csv'.format(path)
         ref_list = []
-        with open(filepath, 'r') as f:
+        with open(filepath, 'r', newline='') as f:
             ref_csv = csv.DictReader(f)
             for row in ref_csv:
                 # print(row)
                 ref_list.append(row['ref'])
         print("\nreflist: {}\n".format(ref_list))
         ### download the metadata using key_info into the path of your choice
-        for idx, each_ref in enumerate(ref_list):
+        for each_ref in ref_list:
             json_command = 'kaggle datasets metadata {} -p "{}"'.format(each_ref, path)
             os.system(json_command)
 
@@ -40,16 +41,17 @@ def metadata_extracter(pages_to_loop=100, path="/Users/hanley/Desktop/SI_650_Gro
             # keywords
 
             json_path = '{}/dataset-metadata.json'.format(path)
-            fileToUse = open(json_path)
+            fileToUse = open(json_path, encoding = 'utf-8')
             dataset_json = json.load(fileToUse)
 
             ### parse json
-            json_dataset[idx] = {
-                'title': dataset_json['title'],
-                'subtitle': dataset_json['subtitle'],
-                'description': dataset_json['description'],
-                'keywords': dataset_json['keywords']
+            json_dataset[counter] = {
+                'title': str(dataset_json['title']).encode('utf-8'),
+                'subtitle': str(dataset_json['subtitle']).encode('utf-8'),
+                'description': str(dataset_json['description']).encode('utf-8'),
+                'keywords': str(dataset_json['keywords']).encode('utf-8')
             }
+            counter+=1
 
     ## save dictionary as csv?
     with open('{}/dataset.csv'.format(path), 'w', newline='') as f:
@@ -57,8 +59,8 @@ def metadata_extracter(pages_to_loop=100, path="/Users/hanley/Desktop/SI_650_Gro
         writer.writerow(['title', 'subtitle', 'description', 'keywords'])
         print(json_dataset)
         for i in json_dataset:
-            writer.writerow(
-                [json_dataset[i]['title'],
+            writer.writerow([
+                json_dataset[i]['title'],
                 json_dataset[i]['subtitle'],
                 json_dataset[i]['description'],
                 json_dataset[i]['keywords']
