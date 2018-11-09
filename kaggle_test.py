@@ -2,7 +2,7 @@ import os
 import csv
 import json
 
-def metadata_extracter(pages_to_loop=100, path="C:/Users/akiok/Google Drive/MSI/SI650/project/SI_650_Group_Project"):
+def metadata_extracter(pages_to_loop=100, path="/Users/hanley/Desktop/SI_650_Group_Project/SI_650_Group_Project"):
 
     '''
     1) grab username/dataset info
@@ -49,17 +49,17 @@ def metadata_extracter(pages_to_loop=100, path="C:/Users/akiok/Google Drive/MSI/
                 'keywords': dataset_json['keywords']
             }
 
-    ### save dictionary as csv?
-    with open('{}/dataset.csv'.format(path), 'w') as f:
-        writer = csv.writer(f)
-        writer.writerow(['title', 'subtitle', 'description', 'keywords'])
-        for i in json_dataset:
-            writer.writerow(
-                [json_dataset[i]['title'],
-                json_dataset[i]['subtitle'],
-                json_dataset[i]['description'],
-                json_dataset[i]['keywords']
-            ])
+    # ### save dictionary as csv?
+    # with open('{}/dataset.csv'.format(path), 'w') as f:
+    #     writer = csv.writer(f)
+    #     writer.writerow(['title', 'subtitle', 'description', 'keywords'])
+    #     for i in json_dataset:
+    #         writer.writerow(
+    #             [json_dataset[i]['title'],
+    #             json_dataset[i]['subtitle'],
+    #             json_dataset[i]['description'],
+    #             json_dataset[i]['keywords']
+    #         ])
 
 if __name__ == '__main__':
     metadata_extracter(pages_to_loop=1)
