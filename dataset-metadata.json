@@ -1,0 +1,31 @@
+{
+  "id": "theworldbank/education-statistics",
+  "id_no": 398,
+  "title": "Education Statistics",
+  "subtitle": "From World Bank Open Data",
+  "description": "### Content  \n\n<p>The World Bank EdStats All Indicator Query holds over 4,000 internationally comparable indicators that describe education access, progression, completion, literacy, teachers, population, and expenditures. The indicators cover the education cycle from pre-primary to vocational and tertiary education.</p>\n<p>The query also holds learning outcome data from international and regional learning assessments (e.g. PISA, TIMSS, PIRLS), equity data from household surveys, and projection/attainment data to 2050. For further information, please visit the EdStats website.</p>  \n\n### Context  \n\nThis is a dataset hosted by the World Bank. The organization has an open data platform found [here](https://databank.worldbank.org/) and they update their information according the amount of data that is brought in. Explore the World Bank using Kaggle and all of the data sources available through the World Bank [organization page](https://www.kaggle.com/theworldbank)!  \n\n* Update Frequency: This dataset is updated daily.\n\n### Acknowledgements\n\nThis dataset is maintained using the World Bank's [APIs](data.worldbank.org/developers) and Kaggle's [API](https://github.com/Kaggle/kaggle-api).  \n\n[Cover photo](https://unsplash.com/photos/fl9kHTSPSvk) by [Jose Alonso](https://unsplash.com/@jd_alon) on [Unsplash](https://unsplash.com/)  \n_Unsplash Images are distributed under a unique [Unsplash License](https://unsplash.com/license)._",
+  "keywords": [
+    "world",
+    "education",
+    "utility",
+    "countries",
+    "medium",
+    "featured"
+  ],
+  "resources": [
+    {
+      "path": "/Users/hanley/Desktop/SI_650_Group_Project/SI_650_Group_Project/edstats-csv-zip-32-mb-.zip",
+      "description": "",
+      "schema": {
+        "fields": []
+      }
+    },
+    {
+      "path": "/Users/hanley/Desktop/SI_650_Group_Project/SI_650_Group_Project/edstats-excel-zip-72-mb-.zip",
+      "description": "",
+      "schema": {
+        "fields": []
+      }
+    }
+  ]
+}

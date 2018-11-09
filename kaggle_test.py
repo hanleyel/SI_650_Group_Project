@@ -11,6 +11,8 @@ def metadata_extracter(pages_to_loop=100, path="/Users/hanley/Desktop/SI_650_Gro
     '''
     print('saving data in {}'.format(path))
 
+    json_dataset = {}
+
     ### fetch username/dataset
     for page_num in range(pages_to_loop):
         csv_command = 'kaggle datasets list -p{} --csv > dataset_name.csv'.format((page_num+1), path)
@@ -23,6 +25,7 @@ def metadata_extracter(pages_to_loop=100, path="/Users/hanley/Desktop/SI_650_Gro
         with open(filepath, 'r') as f:
             ref_csv = csv.DictReader(f)
             for row in ref_csv:
+                # print(row)
                 ref_list.append(row['ref'])
 
         ### download the metadata using key_info into the path of your choice
@@ -41,7 +44,6 @@ def metadata_extracter(pages_to_loop=100, path="/Users/hanley/Desktop/SI_650_Gro
             dataset_json = json.load(fileToUse)
 
             ### parse json
-            json_dataset = {}
             json_dataset[idx] = {
                 'title': dataset_json['title'],
                 'subtitle': dataset_json['subtitle'],
@@ -49,17 +51,18 @@ def metadata_extracter(pages_to_loop=100, path="/Users/hanley/Desktop/SI_650_Gro
                 'keywords': dataset_json['keywords']
             }
 
-    # ### save dictionary as csv?
-    # with open('{}/dataset.csv'.format(path), 'w') as f:
-    #     writer = csv.writer(f)
-    #     writer.writerow(['title', 'subtitle', 'description', 'keywords'])
-    #     for i in json_dataset:
-    #         writer.writerow(
-    #             [json_dataset[i]['title'],
-    #             json_dataset[i]['subtitle'],
-    #             json_dataset[i]['description'],
-    #             json_dataset[i]['keywords']
-    #         ])
+    ## save dictionary as csv?
+    with open('{}/dataset.csv'.format(path), 'w') as f:
+        writer = csv.writer(f)
+        writer.writerow(['title', 'subtitle', 'description', 'keywords'])
+        print(json_dataset)
+        for i in json_dataset:
+            writer.writerow(
+                [json_dataset[i]['title'],
+                json_dataset[i]['subtitle'],
+                json_dataset[i]['description'],
+                json_dataset[i]['keywords']
+            ])
 
 if __name__ == '__main__':
     metadata_extracter(pages_to_loop=1)
