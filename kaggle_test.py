@@ -2,7 +2,11 @@ import os
 import csv
 import json
 
-def metadata_extracter(pages_to_loop=100, path="/Users/hanley/Desktop/SI_650_Group_Project/SI_650_Group_Project"):
+akio_path = "C:/Users/akiok/Google Drive/MSI/SI650/project/SI_650_Group_Project"
+liz_path = "/Users/hanley/Desktop/SI_650_Group_Project/SI_650_Group_Project"
+amy_path = ''
+
+def metadata_extracter(path, pages_to_loop=100):
 
     '''
     1) grab username/dataset info
@@ -67,4 +71,4 @@ def metadata_extracter(pages_to_loop=100, path="/Users/hanley/Desktop/SI_650_Gro
             ])
 
 if __name__ == '__main__':
-    metadata_extracter(pages_to_loop=2, path="C:/Users/akiok/Google Drive/MSI/SI650/project/SI_650_Group_Project")
+    metadata_extracter(path=liz_path, pages_to_loop=2, )
