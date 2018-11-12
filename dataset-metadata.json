@@ -1,30 +1,1534 @@
 {
-  "id": "theworldbank/education-statistics",
-  "id_no": 398,
-  "title": "Education Statistics",
-  "subtitle": "From World Bank Open Data",
-  "description": "### Content  \n\n<p>The World Bank EdStats All Indicator Query holds over 4,000 internationally comparable indicators that describe education access, progression, completion, literacy, teachers, population, and expenditures. The indicators cover the education cycle from pre-primary to vocational and tertiary education.</p>\n<p>The query also holds learning outcome data from international and regional learning assessments (e.g. PISA, TIMSS, PIRLS), equity data from household surveys, and projection/attainment data to 2050. For further information, please visit the EdStats website.</p>  \n\n### Context  \n\nThis is a dataset hosted by the World Bank. The organization has an open data platform found [here](https://databank.worldbank.org/) and they update their information according the amount of data that is brought in. Explore the World Bank using Kaggle and all of the data sources available through the World Bank [organization page](https://www.kaggle.com/theworldbank)!  \n\n* Update Frequency: This dataset is updated daily.\n\n### Acknowledgements\n\nThis dataset is maintained using the World Bank's [APIs](data.worldbank.org/developers) and Kaggle's [API](https://github.com/Kaggle/kaggle-api).  \n\n[Cover photo](https://unsplash.com/photos/fl9kHTSPSvk) by [Jose Alonso](https://unsplash.com/@jd_alon) on [Unsplash](https://unsplash.com/)  \n_Unsplash Images are distributed under a unique [Unsplash License](https://unsplash.com/license)._",
+  "id": "kaggle/kaggle-survey-2017",
+  "id_no": 2733,
+  "title": "Kaggle Machine Learning & Data Science Survey 2017",
+  "subtitle": "A big picture view of the state of data science and machine learning.",
+  "description": "### Context\n\nFor the first time, Kaggle conducted an industry-wide survey to establish a comprehensive view of the state of data science and machine learning. The survey received over 16,000 responses and we learned a ton about who is working with data, what\u2019s happening at the cutting edge of machine learning across industries, and how new data scientists can best break into the field.\n\nTo share some of the initial insights from the survey, we\u2019ve worked with the folks from [The Pudding](https://pudding.cool/) to put together [this interactive report](kaggle.com/surveys/2017). They\u2019ve shared all of the kernels used in the report [here]().\n\n### Content\n\nThe data includes 5 files: \n\n  - `schema.csv`: a CSV file with survey schema. This schema includes the questions that correspond to each column name in both the `multipleChoiceResponses.csv` and `freeformResponses.csv`.\n  - `multipleChoiceResponses.csv`: Respondents' answers to multiple choice and ranking questions. These are non-randomized and thus a single row does correspond to all of a single user's answers.\n  -`freeformResponses.csv`: Respondents' freeform answers to Kaggle's survey questions. These responses are randomized within a column, so that reading across a single row does not give a single user's answers.\n  - `conversionRates.csv`: Currency conversion rates (to USD) as accessed from the R package \"quantmod\" on September 14, 2017\n  - `RespondentTypeREADME.txt`: This is a schema for decoding the responses in the \"Asked\" column of the `schema.csv` file.\n\n### Kernel Awards in November\nIn the month of November, we\u2019re awarding $1000 a week for code and analyses shared on this dataset via [Kaggle Kernels](https://www.kaggle.com/kaggle/kaggle-survey-2017/kernels). Read more about this month\u2019s [Kaggle Kernels Awards](https://www.kaggle.com/about/datasets-awards/kernels) and help us advance the state of machine learning and data science by exploring this one of a kind dataset.\n\n### Methodology\n  - This survey received 16,716 usable respondents from 171 countries and territories. If a country or territory received less than 50 respondents, we grouped them into a group named \u201cOther\u201d for anonymity.\n  - We excluded respondents who were flagged by our survey system as \u201cSpam\u201d or who did not answer the question regarding their employment status (this question was the first required question, so not answering it indicates that the respondent did not proceed past the 5th question in our survey).\n  - Most of our respondents were found primarily through Kaggle channels, like our email list, discussion forums and social media channels.\n  - The survey was live from August 7th to August 25th. The median response time for those who participated in the survey was 16.4 minutes. We allowed respondents to complete the survey at any time during that window.\n  - We received salary data by first asking respondents for their day-to-day currency, and then asking them to write in either their total compensation.\n     - We\u2019ve provided a csv with an exchange rate to USD for you to calculate the salary in US dollars on your own.\n     - The question was optional\n  - Not every question was shown to every respondent. In an attempt to ask relevant questions to each respondent, we generally asked work related questions to employed data scientists and learning related questions to students. There is a column in the `schema.csv` file called \"Asked\" that describes who saw each question. You can learn more about the different segments we used in the `schema.csv` file and `RespondentTypeREADME.txt` in the data tab.\n  - To protect the respondents\u2019 identity, the answers to multiple choice questions have been separated into a separate data file from the open-ended responses. We do not provide a key to match up the multiple choice and free form responses. Further, the free form responses have been randomized column-wise such that the responses that appear on the same row did not necessarily come from the same survey-taker. \n",
   "keywords": [
-    "world",
-    "education",
-    "utility",
-    "countries",
+    "artificial intelligence",
+    "employment",
+    "sociology",
     "medium",
     "featured"
   ],
   "resources": [
     {
-      "path": "/Users/hanley/Desktop/SI_650_Group_Project/SI_650_Group_Project/edstats-csv-zip-32-mb-.zip",
-      "description": "",
+      "path": "/Users/hanley/Desktop/SI_650_Group_Project/SI_650_Group_Project/conversionRates.csv",
+      "description": "Currency conversion rates (to USD) as accessed from the R package \"quantmod\" on September 14, 2017.",
+      "schema": {
+        "fields": [
+          {
+            "name": "",
+            "title": null,
+            "type": "Numeric"
+          },
+          {
+            "name": "originCountry",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "exchangeRate",
+            "title": null,
+            "type": "Numeric"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/Users/hanley/Desktop/SI_650_Group_Project/SI_650_Group_Project/freeformResponses.csv",
+      "description": "Respondents' freeform answers to Kaggle's survey questions. These responses are randomized within a column, so that reading across a single row does not give a single user's answers.",
+      "schema": {
+        "fields": [
+          {
+            "name": "GenderFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "KaggleMotivationFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "CurrentJobTitleFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "MLToolNextYearFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "MLMethodNextYearFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LanguageRecommendationFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "PublicDatasetsFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "PersonalProjectsChallengeFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformCommunityFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformFreeForm1",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformFreeForm2",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformFreeForm3",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformUsefulnessCommunitiesFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformUsefulnessFreeForm1Select",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformUsefulnessFreeForm1SelectFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformUsefulnessFreeForm2Select",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformUsefulnessFreeForm2SelectFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformUsefulnessFreeForm3Select",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformUsefulnessFreeForm3SelectFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "BlogsPodcastsNewslettersFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobSkillImportanceOtherSelect1FreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobSkillImportanceOtherSelect2FreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobSkillImportanceOtherSelect3FreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "CoursePlatformFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "HardwarePersonalProjectsFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "ProveKnowledgeFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "ImpactfulAlgorithmFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "InterestingProblemFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "DataScienceIdentityFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "MajorFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "PastJobTitlesFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "FirstTrainingFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningCategoryOtherFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "MLSkillsFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "MLTechniquesFreeform",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "EmployerIndustryOtherFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "EmployerSearchMethodOtherFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobFunctionFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkHardwareFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkDataTypeFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkLibrariesFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkAlgorithmsFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFreeForm1",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFreeForm2",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFreeForm3",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencySelect1FreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkFrequencySelect2FreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkFrequencySelect3FreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFreeForm1",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFreeForm2",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFreeForm3",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencySelect1FreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencySelect2FreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencySelect3FreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "TimeOtherSelectFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkChallengesFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkChallengeFrequencyOtherFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMLTeamSeatFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkDataStorageFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkCodeSharingFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "SalaryChangeFreeForm",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobSearchResourceFreeForm",
+            "title": null,
+            "type": "String"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/Users/hanley/Desktop/SI_650_Group_Project/SI_650_Group_Project/multipleChoiceResponses.csv",
+      "description": "Respondents' answers to multiple choice and ranking questions. These are non-randomized and thus a single row does correspond to all of a single user's answers.",
+      "schema": {
+        "fields": [
+          {
+            "name": "GenderSelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "Country",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "Age",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "EmploymentStatus",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "StudentStatus",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningDataScience",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "CodeWriter",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "CareerSwitcher",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "CurrentJobTitleSelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "TitleFit",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "CurrentEmployerType",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "MLToolNextYearSelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "MLMethodNextYearSelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LanguageRecommendationSelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "PublicDatasetsSelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformSelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformUsefulnessArxiv",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformUsefulnessBlogs",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformUsefulnessCollege",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformUsefulnessCompany",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformUsefulnessConferences",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformUsefulnessFriends",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformUsefulnessKaggle",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformUsefulnessNewsletters",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformUsefulnessCommunities",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformUsefulnessDocumentation",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformUsefulnessCourses",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformUsefulnessProjects",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformUsefulnessPodcasts",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformUsefulnessSO",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformUsefulnessTextbook",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformUsefulnessTradeBook",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformUsefulnessTutoring",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningPlatformUsefulnessYouTube",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "BlogsPodcastsNewslettersSelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningDataScienceTime",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobSkillImportanceBigData",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobSkillImportanceDegree",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobSkillImportanceStats",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobSkillImportanceEnterpriseTools",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobSkillImportancePython",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobSkillImportanceR",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobSkillImportanceSQL",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobSkillImportanceKaggleRanking",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobSkillImportanceMOOC",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobSkillImportanceVisualizations",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobSkillImportanceOtherSelect1",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobSkillImportanceOtherSelect2",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobSkillImportanceOtherSelect3",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "CoursePlatformSelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "HardwarePersonalProjectsSelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "TimeSpentStudying",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "ProveKnowledgeSelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "DataScienceIdentitySelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "FormalEducation",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "MajorSelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "Tenure",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "PastJobTitlesSelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "FirstTrainingSelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "LearningCategorySelftTaught",
+            "title": null,
+            "type": "Numeric"
+          },
+          {
+            "name": "LearningCategoryOnlineCourses",
+            "title": null,
+            "type": "Numeric"
+          },
+          {
+            "name": "LearningCategoryWork",
+            "title": null,
+            "type": "Numeric"
+          },
+          {
+            "name": "LearningCategoryUniversity",
+            "title": null,
+            "type": "Numeric"
+          },
+          {
+            "name": "LearningCategoryKaggle",
+            "title": null,
+            "type": "Numeric"
+          },
+          {
+            "name": "LearningCategoryOther",
+            "title": null,
+            "type": "Numeric"
+          },
+          {
+            "name": "MLSkillsSelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "MLTechniquesSelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "ParentsEducation",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "EmployerIndustry",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "EmployerSize",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "EmployerSizeChange",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "EmployerMLTime",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "EmployerSearchMethod",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "UniversityImportance",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobFunctionSelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkHardwareSelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkDataTypeSelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkProductionFrequency",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkDatasetSize",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkAlgorithmsSelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsSelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyAmazonML",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyAWS",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyAngoss",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyC",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyCloudera",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyDataRobot",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyFlume",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyGCP",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyHadoop",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyIBMCognos",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyIBMSPSSModeler",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyIBMSPSSStatistics",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyIBMWatson",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyImpala",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyJava",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyJulia",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyJupyter",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyKNIMECommercial",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyKNIMEFree",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyMathematica",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyMATLAB",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyAzure",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyExcel",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyMicrosoftRServer",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyMicrosoftSQL",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyMinitab",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyNoSQL",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyOracle",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyOrange",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyPerl",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyPython",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyQlik",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyR",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyRapidMinerCommercial",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyRapidMinerFree",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencySalfrod",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencySAPBusinessObjects",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencySASBase",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencySASEnterprise",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencySASJMP",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencySpark",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencySQL",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyStan",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyStatistica",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyTableau",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyTensorFlow",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyTIBCO",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencyUnix",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencySelect1",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkToolsFrequencySelect2",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkFrequencySelect3",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsSelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyA/B",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyAssociationRules",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyBayesian",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyCNNs",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyCollaborativeFiltering",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyCross-Validation",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyDataVisualization",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyDecisionTrees",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyEnsembleMethods",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyEvolutionaryApproaches",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyGANs",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyGBM",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyHMMs",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyKNN",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyLiftAnalysis",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyLogisticRegression",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyMLN",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyNaiveBayes",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyNLP",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyNeuralNetworks",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyPCA",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyPrescriptiveModeling",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyRandomForests",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyRecommenderSystems",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyRNNs",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencySegmentation",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencySimulation",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencySVMs",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyTextAnalysis",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencyTimeSeriesAnalysis",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencySelect1",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencySelect2",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMethodsFrequencySelect3",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "TimeGatheringData",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "TimeModelBuilding",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "TimeProduction",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "TimeVisualizing",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "TimeFindingInsights",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "TimeOtherSelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "AlgorithmUnderstandingLevel",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkChallengesSelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkChallengeFrequencyPolitics",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkChallengeFrequencyUnusedResults",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkChallengeFrequencyUnusefulInstrumenting",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkChallengeFrequencyDeployment",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkChallengeFrequencyDirtyData",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkChallengeFrequencyExplaining",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkChallengeFrequencyPass",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkChallengeFrequencyIntegration",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkChallengeFrequencyTalent",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkChallengeFrequencyDataFunds",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkChallengeFrequencyDomainExpertise",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkChallengeFrequencyML",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkChallengeFrequencyTools",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkChallengeFrequencyExpectations",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkChallengeFrequencyITCoordination",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkChallengeFrequencyHiringFunds",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkChallengeFrequencyPrivacy",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkChallengeFrequencyScaling",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkChallengeFrequencyEnvironments",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkChallengeFrequencyClarity",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkChallengeFrequencyDataAccess",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkChallengeFrequencyOtherSelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkDataVisualizations",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkInternalVsExternalTools",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkMLTeamSeatSelect",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkDatasets",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkDatasetsChallenge",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkDataStorage",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkDataSharing",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkDataSourcing",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "WorkCodeSharing",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "RemoteWork",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "CompensationAmount",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "CompensationCurrency",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "SalaryChange",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobSatisfaction",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobSearchResource",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobHuntTime",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobFactorLearning",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobFactorSalary",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobFactorOffice",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobFactorLanguages",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobFactorCommute",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobFactorManagement",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobFactorExperienceLevel",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobFactorDepartment",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobFactorTitle",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobFactorCompanyFunding",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobFactorImpact",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobFactorRemote",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobFactorIndustry",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobFactorLeaderReputation",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobFactorDiversity",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "JobFactorPublishingOpportunity",
+            "title": null,
+            "type": "String"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/Users/hanley/Desktop/SI_650_Group_Project/SI_650_Group_Project/RespondentTypeREADME.txt",
+      "description": "This is a schema for decoding the responses in the \"Asked\" column of the schema.csv file.",
       "schema": {
         "fields": []
       }
     },
     {
-      "path": "/Users/hanley/Desktop/SI_650_Group_Project/SI_650_Group_Project/edstats-excel-zip-72-mb-.zip",
-      "description": "",
+      "path": "/Users/hanley/Desktop/SI_650_Group_Project/SI_650_Group_Project/schema.csv",
+      "description": "A CSV file with survey schema. This schema  includes the questions that correspond to each column name in both the multipleChoiceResponses.csv and freeformResponses.csv.",
       "schema": {
-        "fields": []
+        "fields": [
+          {
+            "name": "Column",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "Question",
+            "title": null,
+            "type": "String"
+          },
+          {
+            "name": "Asked",
+            "title": null,
+            "type": "String"
+          }
+        ]
       }
     }
   ]

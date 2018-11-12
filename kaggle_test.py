@@ -56,6 +56,7 @@ def metadata_extracter(path, pages_to_loop=100):
                 'keywords': str(dataset_json['keywords']).encode('utf-8')
             }
             counter+=1
+            print(counter)
 
     ## save dictionary as csv?
     with open('{}/dataset.csv'.format(path), 'w', newline='') as f:
@@ -71,4 +72,4 @@ def metadata_extracter(path, pages_to_loop=100):
             ])
 
 if __name__ == '__main__':
-    metadata_extracter(path=liz_path, pages_to_loop=2, )
+    metadata_extracter(path=liz_path, pages_to_loop=5)
