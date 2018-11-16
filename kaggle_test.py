@@ -61,7 +61,7 @@ def metadata_extracter(path, pages_to_loop=100):
     ## save dictionary as csv?
     with open('{}/dataset.csv'.format(path), 'w', newline='') as f:
         writer = csv.writer(f)
-        writer.writerow(['title', 'subtitle', 'description', 'keywords'])
+        # writer.writerow(['title', 'subtitle', 'description', 'keywords'])
         print(json_dataset)
         for i in json_dataset:
             writer.writerow([
@@ -72,4 +72,4 @@ def metadata_extracter(path, pages_to_loop=100):
             ])
 
 if __name__ == '__main__':
-    metadata_extracter(path=liz_path, pages_to_loop=5)
+    metadata_extracter(path=akio_path, pages_to_loop=1)
