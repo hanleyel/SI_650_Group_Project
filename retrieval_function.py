@@ -39,6 +39,8 @@ class BM25():
                 doc_count += doc_term_count
                 doc_size = len(doc_lst)
 
+        infile.close()
+
         avg_dl = total_dl / num_docs
 
         with open('dataset.csv') as infile:
@@ -56,9 +58,15 @@ class BM25():
 
                 qtf = ((k3+1)*query_term_weight)/(k3+query_term_weight)
 
-                print(np.dot(np.dot(tf, idf), qtf))
+                score = np.dot(np.dot(tf, idf), qtf)
+                print(score)
 
-        return np.dot(np.dot(tf, idf), qtf)
+                if score > 0:
+                    print(row)
+
+        infile.close()
+
+        return score
 
 ranker = BM25()
 
