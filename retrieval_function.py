@@ -55,7 +55,7 @@ class BM25():
                 tf = ((k1+1)*doc_term_count)/(k1*(1-b+b*(doc_size/avg_dl))+doc_term_count)
                 # print(tf)
 
-                print("{}\t{}\t{}".format(num_docs, doc_count, ((num_docs-doc_count+0.5)/(doc_count+0.5))))
+                # print("num_docs: {}\tdoc_count: {}\t e^idf:{}".format(num_docs, doc_count, ((num_docs-doc_count+0.5)/(doc_count+0.5))))
                 idf = math.log(((num_docs-doc_count)+0.5)/(doc_count+0.5)) # this line gives a math domain error when the query term is common
                 # print(idf)
 
