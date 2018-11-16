@@ -1,6 +1,7 @@
 import os
 import csv
 import json
+import sys
 
 akio_path = "C:/Users/akiok/Google Drive/MSI/SI650/project/SI_650_Group_Project"
 liz_path = "/Users/hanley/Desktop/SI_650_Group_Project/SI_650_Group_Project"
@@ -72,4 +73,10 @@ def metadata_extracter(path, pages_to_loop=100):
             ])
 
 if __name__ == '__main__':
-    metadata_extracter(path=akio_path, pages_to_loop=1)
+    try:
+        path = str(sys.argv[1])
+        pages = str(sys.argv[2])
+        # print("path: {}\npages: {}".format(path, pages))
+        metadata_extracter(path=akio_path, pages_to_loop=1)
+    except:
+        metadata_extracter(path=akio_path, pages_to_loop=1)
