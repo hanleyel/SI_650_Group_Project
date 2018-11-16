@@ -46,8 +46,10 @@ class BM25():
         avg_dl = total_dl / num_docs
 
         with open('dataset.csv') as infile:
+            result_dict = {}
             csv_reader = csv.reader(infile, delimiter=',')
             for row in csv_reader:
+                title = row[0]
                 doc = row[2]
                 doc_lst = doc.split()
                 doc_term_count = doc_lst.count(term)
@@ -62,11 +64,18 @@ class BM25():
                 qtf = ((k3+1)*query_term_weight)/(k3+query_term_weight)
 
                 score = np.dot(np.dot(tf, idf), qtf)
-                print(score)
 
-                if score > 0:
-                    print(row)
+                # print('{},{}'.format(score, title))
 
+                result_dict[title] = score
+
+
+                # if score > 0:
+                #     print(row)
+
+            sorted_results = sorted(result_dict, key=lambda x: result_dict[x], reverse=True)
+            for idx, i in enumerate(sorted_results):
+                print("{}, {}".format(i, sorted_results[idx]))
         infile.close()
 
         return score
