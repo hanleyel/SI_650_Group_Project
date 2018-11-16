@@ -41,15 +41,22 @@ class BM25():
 
         avg_dl = total_dl / num_docs
 
-        tf = ((k1+1)*doc_term_count)/(k1*(1-b+b*(doc_size/avg_dl))+doc_term_count)
-        print(tf)
+        with open('dataset.csv') as infile:
+            csv_reader = csv.reader(infile, delimiter=',')
+            for row in csv_reader:
+                doc = row[2]
+                doc_lst = doc.split()
+                doc_term_count = doc_lst.count(term)
 
-        idf = math.log((num_docs-doc_count+0.5)/(doc_count+0.5)) # this line gives a math domain error when the query term is common
-        print(idf)
+                tf = ((k1+1)*doc_term_count)/(k1*(1-b+b*(doc_size/avg_dl))+doc_term_count)
+                # print(tf)
 
-        qtf = ((k3+1)*query_term_weight)/(k3+query_term_weight)
+                idf = math.log((num_docs-doc_count+0.5)/(doc_count+0.5)) # this line gives a math domain error when the query term is common
+                # print(idf)
 
-        print(np.dot(np.dot(tf, idf), qtf))
+                qtf = ((k3+1)*query_term_weight)/(k3+query_term_weight)
+
+                print(np.dot(np.dot(tf, idf), qtf))
 
         return np.dot(np.dot(tf, idf), qtf)
 
