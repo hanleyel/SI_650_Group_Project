@@ -64,6 +64,20 @@ class BM25():
                 qtf = ((k3+1)*query_term_weight)/(k3+query_term_weight)
 
                 score = np.dot(np.dot(tf, idf), qtf)
+
+
+                # print('{},{}'.format(score, title))
+
+                result_dict[title] = score
+
+
+                # if score > 0:
+                #     print(row)
+
+            sorted_results = sorted(result_dict, key=lambda x: result_dict[x], reverse=True)
+            for idx, i in enumerate(sorted_results):
+                print("{}, {}".format(i, sorted_results[idx]))
+=======
                 # print(score)
 
                 result_dict[title] = score
@@ -72,6 +86,7 @@ class BM25():
                 # if score > 0:
                     # print(row)
             print(sorted(result_dict))
+
         infile.close()
 
         return score
