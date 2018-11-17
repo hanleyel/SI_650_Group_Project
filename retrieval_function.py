@@ -75,8 +75,8 @@ class BM25():
                 #     print(row)
 
             sorted_results = sorted(result_dict, key=lambda x: result_dict[x], reverse=True)
-            for idx, i in enumerate(sorted_results):
-                print("{}, {}".format(i, sorted_results[idx]))
+            for i in sorted_results:
+                print("{}, \t{}".format(i, result_dict[i]))
 =======
                 # print(score)
 
