@@ -1,3 +1,9 @@
 dataset.csv
 dataset_name.csv
 dataset-metadata.json
+venv
+*.pyc
+staticfiles
+.env
+db.sqlite3
+getting-started/*
