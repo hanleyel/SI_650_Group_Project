@@ -9,15 +9,19 @@
 
 <div class="topnav">
     <div class="search-container">
-        {% from "_formhelpers.html" import render_field %}
-        <form method=post>
-          <dl>
-            {{ render_field(form.select) }}
-            <p>
-            {{ render_field(form.search) }}
-          </dl>
-          <p><input type=submit value=Search>
+        <!--<form action="results.html">-->
+            <!--<input type="text" placeholder="Search.." name="search">-->
+            <!--<button type="submit">Submit</button>-->
+        <!--</form>-->
+
+        <form action="/results" method="POST">
+
+            Search: <input type="text" name="searchterm"/> <br/>
+
+            <input type="submit" value="submit"/>
+
         </form>
+
     </div>
 </div>
 

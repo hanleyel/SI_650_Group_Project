@@ -60,7 +60,7 @@ def metadata_extracter(path, pages_to_loop=100):
             print(counter)
 
     ## save dictionary as csv?
-    with open('{}/dataset.csv'.format(path), 'w', newline='') as f:
+    with open('{}/app/dataset.csv'.format(path), 'w', newline='') as f:
         writer = csv.writer(f)
         # writer.writerow(['title', 'subtitle', 'description', 'keywords'])
         print(json_dataset)
@@ -77,6 +77,6 @@ if __name__ == '__main__':
         path = str(sys.argv[1])
         pages = str(sys.argv[2])
         # print("path: {}\npages: {}".format(path, pages))
-        metadata_extracter(path=akio_path, pages_to_loop=1)
+        metadata_extracter(path=liz_path, pages_to_loop=1)
     except:
-        metadata_extracter(path=akio_path, pages_to_loop=1)
+        metadata_extracter(path=liz_path, pages_to_loop=1)

@@ -13,22 +13,22 @@ query_term_weight = 'query term count (or weight in case of feedback)'
 '''
 
 class BM25():
-    def __init__(self, k1=1.2, b=0.75, k3=500, term=input('Please enter your query term: ')):
+    def __init__(self, k1=1.2, b=0.75, k3=500):
         self.k1 = k1
         self.b = b
         self.k3 = k3
-        self.term = term
+        # self.term = term
 
-    def scorer(self):
+    def scorer(self, filename, term):
         k1 = self.k1
         b = self.b
         k3 = self.k3
-        term = self.term
+        # term = self.term
         num_docs = 0
         total_dl = 0
         doc_count = 0
         query_term_weight = 1
-        with open('dataset.csv') as infile:
+        with open(filename) as infile:
             csv_reader = csv.reader(infile, delimiter=',')
             for row in csv_reader:
                 # print(row)
@@ -45,7 +45,7 @@ class BM25():
 
         avg_dl = total_dl / num_docs
 
-        with open('dataset.csv') as infile:
+        with open(filename) as infile:
             result_dict = {}
             csv_reader = csv.reader(infile, delimiter=',')
             for row in csv_reader:
@@ -77,7 +77,6 @@ class BM25():
             sorted_results = sorted(result_dict, key=lambda x: result_dict[x], reverse=True)
             for i in sorted_results:
                 print("{}, \t{}".format(i, result_dict[i]))
-=======
                 # print(score)
 
                 result_dict[title] = score
@@ -85,12 +84,16 @@ class BM25():
 
                 # if score > 0:
                     # print(row)
-            print(sorted(result_dict))
+            sorted_dict = sorted(result_dict)
 
         infile.close()
 
-        return score
+        results_html = ''
+        for ele in sorted_dict:
+            results_html += '<p>'+ele+'</p><br>'
 
-ranker = BM25()
+        return results_html
 
-ranker.scorer()
+# ranker = BM25()
+#
+# print(ranker.scorer('app/dataset.csv', term='kaggle'))
