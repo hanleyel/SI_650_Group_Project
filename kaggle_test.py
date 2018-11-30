@@ -80,3 +80,4 @@ if __name__ == '__main__':
         metadata_extracter(path=liz_path, pages_to_loop=1)
     except:
         metadata_extracter(path=liz_path, pages_to_loop=1)
+        
