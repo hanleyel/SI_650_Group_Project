@@ -36,7 +36,8 @@ def metadata_extracter(path, pages_to_loop=100):
         print("\nreflist: {}\n".format(ref_list))
         ### download the metadata using key_info into the path of your choice
         for each_ref in ref_list:
-            json_command = 'kaggle datasets metadata {} -p "{}"'.format(each_ref, path)
+            print(each_ref)
+                json_command = 'kaggle datasets metadata {} -p "{}"'.format(each_ref, path)
             os.system(json_command)
 
             ### read through json file downloaded to grab the following:
@@ -77,6 +78,7 @@ if __name__ == '__main__':
         path = str(sys.argv[1])
         pages = str(sys.argv[2])
         # print("path: {}\npages: {}".format(path, pages))
-        metadata_extracter(path=liz_path, pages_to_loop=1)
+        metadata_extracter(path=path, pages_to_loop=int(pages))
     except:
-        metadata_extracter(path=liz_path, pages_to_loop=1)
+        print("try again")
+        # metadata_extracter(path=path, pages_to_loop=int(pages))
