@@ -1,10 +1,12 @@
 from flask import Flask, render_template, request
-from SI_650_Group_Project.app.retrieval_function import BM25
+# from SI_650_Group_Project.app.retrieval_function import BM25
+from model import BM25
+
 
 app = Flask(__name__)
 ranker = BM25()
-results = ranker.scorer(filename='dataset.csv', term='new')
-print(str(results))
+# results = ranker.scorer(filename='dataset.csv', term='new')
+# print(str(results))
 
 
 @app.route('/')
@@ -20,5 +22,9 @@ def results_page():
         searchterm = ''
 
     header = '<h2>Returning datasets related to: ' + searchterm + '.</h2><br>'
-    results
     return header + results
+
+
+if __name__=="__main__":
+    model.init()
+    app.run(debug=True)

@@ -80,5 +80,10 @@ if __name__ == '__main__':
         # print("path: {}\npages: {}".format(path, pages))
         metadata_extracter(path=path, pages_to_loop=int(pages))
     except:
+<<<<<<< HEAD
         print("try again")
         # metadata_extracter(path=path, pages_to_loop=int(pages))
+=======
+        metadata_extracter(path=liz_path, pages_to_loop=1)
+        
+>>>>>>> 8a54201fb28efe0739f1301b4ec4987a692f3a6c
