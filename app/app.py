@@ -3,8 +3,8 @@ from SI_650_Group_Project.app.retrieval_function import BM25
 
 app = Flask(__name__)
 ranker = BM25()
-results = ranker.scorer(filename='dataset.csv', term='new')
-print(str(results))
+# results = ranker.scorer(filename='dataset.csv', term='new')
+# print(str(results))
 
 
 @app.route('/')

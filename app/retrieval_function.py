@@ -96,4 +96,4 @@ class BM25():
 
 # ranker = BM25()
 #
-# print(ranker.scorer('app/dataset.csv', term='kaggle'))
+# print(ranker.scorer('app/dataset.csv', term='police'))
