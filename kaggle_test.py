@@ -42,7 +42,7 @@ def metadata_extracter(path, pages_to_loop=100):
         ### download the metadata using key_info into the path of your choice
         for each_ref in ref_list:
             print(each_ref)
-                json_command = 'kaggle datasets metadata {} -p "{}"'.format(each_ref, path)
+            json_command = 'kaggle datasets metadata {} -p "{}"'.format(each_ref, path)
             os.system(json_command)
 
             ### read through json file downloaded to grab the following:
