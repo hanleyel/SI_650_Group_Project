@@ -10,7 +10,7 @@ import sys
 
 akio_path = "C:/Users/akiok/Google Drive/MSI/SI650/project/SI_650_Group_Project"
 liz_path = "/Users/hanley/Desktop/SI_650_Group_Project/SI_650_Group_Project"
-amy_path = ''
+amy_path = '/Users/anewman/Desktop/fall_2018/SI_650/Group_Project/SI_650_Group_Project'
 
 def metadata_extracter(path, pages_to_loop=100):
 
