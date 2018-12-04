@@ -96,5 +96,4 @@ class BM25():
         return results_html
 
 # ranker = BM25()
-#
 # print(ranker.scorer('dataset.csv', term='Policing'))
