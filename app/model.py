@@ -90,10 +90,10 @@ class BM25():
 
         results_html = ''
         for ele in sorted_dict:
-            results_html += '<p>'+ele+'</p><br>'
+            results_html += '<p>'+ele+'</p>'
 
         return results_html
 
 # ranker = BM25()
 #
-# print(ranker.scorer('app/dataset.csv', term='police'))
+# print(ranker.scorer('dataset.csv', term='Kaggle'))
