@@ -176,6 +176,6 @@ if __name__ == '__main__':
         # path = str(sys.argv[1])
         # pages = str(sys.argv[2])
         # print("path: {}\npages: {}".format(path, pages))
-        metadata_extracter(path = akio_path)
+        metadata_extracter(path = akio_path, pages_to_loop=(82,85))
     except:
         print("try again")
