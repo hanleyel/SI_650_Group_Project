@@ -84,7 +84,8 @@ class BM25():
 
                 # if score > 0:
                     # print(row)
-            sorted_dict = sorted(result_dict)
+            #sorted_dict = sorted(result_dict)
+            sorted_dict = sorted_results
 
         infile.close()
 
@@ -95,5 +96,4 @@ class BM25():
         return results_html
 
 # ranker = BM25()
-#
-# print(ranker.scorer('dataset.csv', term='Kaggle'))
+# print(ranker.scorer('dataset.csv', term='Policing'))
