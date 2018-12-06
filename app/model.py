@@ -1,6 +1,9 @@
 import csv
 import numpy as np
 import math
+import nltk
+from nltk import word_tokenize
+from nltk.stem import WordNetLemmatizer
 
 '''
 term = 'the query term'
@@ -41,6 +44,8 @@ class BM25():
                     # print(row)
                     num_docs += 1
                     doc = row[2]
+                    # wnl = WordNetLemmatizer()
+                    # doc_lst = [wnl.lemmatize(t.lower()) for t in word_tokenize(doc)]
                     doc_lst = doc.split()
                     total_dl += len(doc_lst) # Total length of doc
                     doc_term_count = doc_lst.count(term) # count of term in doc
@@ -84,5 +89,5 @@ class BM25():
 
         return results_html
 
-# ranker = BM25()
-# print(ranker.scorer('dataset.csv', search_term='email'))
+ranker = BM25()
+print(ranker.scorer('dataset.csv', search_term='Spam email'))
