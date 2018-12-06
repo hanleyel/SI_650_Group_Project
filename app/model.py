@@ -31,6 +31,7 @@ class BM25():
         total_dl = 0
         doc_count = 0
         result_dict = {}
+        ref_dict = {}
         try:
             query_term_weight = 1/len(search_term.split())
         except:
@@ -41,7 +42,7 @@ class BM25():
             with open(filename) as infile:
                 csv_reader = csv.reader(infile, delimiter=',')
                 for row in csv_reader:
-                    # print(row)
+                    ref = row[4]
                     num_docs += 1
                     doc = row[2]
                     # wnl = WordNetLemmatizer()
@@ -71,6 +72,7 @@ class BM25():
 
                     score = np.dot(np.dot(tf, idf), qtf)
 
+                    ref_dict[title] = ref
                     if title not in result_dict.keys():
                         result_dict[title] = score
                     else:
@@ -83,11 +85,16 @@ class BM25():
 
 
         results_html = ''
+        count = 0
         for ele in sorted_results:
             if result_dict[ele] > 0:
-                results_html += '<p>'+ele[2:-1]+'</p>'
+                count += 1
+                results_html += '<p>'+str(count)+'. '+'<a href='+ref+'>'+ele[2:-1]+'</a>'+'</p>'
 
-        return results_html
-#
+        if count > 0:
+            return results_html
+        else:
+            return '<p>No results found.</p>'
+
 ranker = BM25()
-print(ranker.scorer('dataset.csv', search_term='Spam email'))
+print(ranker.scorer('dataset.csv', search_term='police'))
