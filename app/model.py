@@ -1,10 +1,9 @@
 import csv
 import numpy as np
 import math
-import re
-import nltk
-from nltk import word_tokenize
+from nltk import word_tokenize, pos_tag
 from nltk.stem import WordNetLemmatizer
+from nltk.corpus import stopwords
 
 '''
 term = 'the query term'
@@ -27,7 +26,6 @@ class BM25():
         k1 = self.k1
         b = self.b
         k3 = self.k3
-        # term = self.term
         num_docs = 0
         total_dl = 0
         doc_count = 0
@@ -45,9 +43,10 @@ class BM25():
                 csv_reader = csv.reader(infile, delimiter=',')
                 for row in csv_reader:
                     num_docs += 1
-                    doc = row[2]
+                    doc = row[5]
                     # wnl = WordNetLemmatizer()
                     # doc_lst = [wnl.lemmatize(t.lower()) for t in word_tokenize(doc)]
+                    # print(doc_lst)
                     doc_lst = doc.split()
                     total_dl += len(doc_lst) # Total length of doc
                     doc_term_count = doc_lst.count(term) # count of term in doc
@@ -64,7 +63,7 @@ class BM25():
                 for row in csv_reader:
                     title = row[0]
                     ref = row[4]
-                    doc = row[2]
+                    doc = row[5]
                     doc_lst = doc.split()
                     doc_term_count = doc_lst.count(term)
 
@@ -75,7 +74,7 @@ class BM25():
                     score = np.dot(np.dot(tf, idf), qtf)
 
                     ref_dict[title] = ref
-                    desc_dict[title] = doc
+                    desc_dict[title] = row[2]
                     if title not in result_dict.keys():
                         result_dict[title] = score
                     else:
@@ -100,4 +99,4 @@ class BM25():
             return '<p>No results found.</p>'
 
 ranker = BM25()
-print(ranker.scorer('dataset.csv', search_term='police'))
+print(ranker.scorer('dataset_cleaned.csv', search_term='police'))
