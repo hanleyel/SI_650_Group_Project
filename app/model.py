@@ -1,9 +1,12 @@
 import csv
 import numpy as np
 import math
+import nltk
 from nltk import word_tokenize, pos_tag
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
+
+nltk.download('english')
 
 '''
 term = 'the query term'
@@ -26,12 +29,31 @@ class BM25():
         k1 = self.k1
         b = self.b
         k3 = self.k3
+
         num_docs = 0
         total_dl = 0
         doc_count = 0
+
         result_dict = {}
         ref_dict = {}
         desc_dict = {}
+
+        stop_words = set(stopwords.words('english'))
+        tokens = pos_tag(word_tokenize(search_term.lower()))
+        filtered_tokens = [i for i in tokens if not i in stop_words]
+
+        lemmatizer = WordNetLemmatizer()
+        lemmatized_tokens = []
+        for word, tag in filtered_tokens:
+            wntag = tag[0].lower()
+            wntag = wntag if wntag in ['a', 'r', 'n', 'v'] else None
+            if not wntag:
+                lemma = word
+            else:
+                lemma = lemmatizer.lemmatize(word, wntag)
+            lemmatized_tokens.append(lemma)
+        search_term = ' '.join(lemmatized_tokens)
+
         try:
             query_term_weight = 1/len(search_term.split())
         except:
@@ -39,14 +61,12 @@ class BM25():
             return None
 
         for term in search_term.split():
+
             with open(filename) as infile:
                 csv_reader = csv.reader(infile, delimiter=',')
                 for row in csv_reader:
                     num_docs += 1
                     doc = row[5]
-                    # wnl = WordNetLemmatizer()
-                    # doc_lst = [wnl.lemmatize(t.lower()) for t in word_tokenize(doc)]
-                    # print(doc_lst)
                     doc_lst = doc.split()
                     total_dl += len(doc_lst) # Total length of doc
                     doc_term_count = doc_lst.count(term) # count of term in doc
@@ -98,5 +118,5 @@ class BM25():
         else:
             return '<p>No results found.</p>'
 
-ranker = BM25()
-print(ranker.scorer('dataset_cleaned.csv', search_term='police'))
+# ranker = BM25()
+# print(ranker.scorer('dataset_cleaned.csv', search_term='police'))

@@ -3,6 +3,7 @@ import nltk
 from nltk import word_tokenize, pos_tag
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
+nltk.download('english')
 
 infilename = 'app/dataset.csv'
 outfilename = 'app/dataset_cleaned.csv'
@@ -30,7 +31,7 @@ with open(infilename, 'r') as infile:
                 lemmatized_tokens.append(lemma)
 
             lem_row = ' '.join(lemmatized_tokens)
-            csv_writer.writerow([row[0], row[1], row[2], row[3], row[4], row])
+            csv_writer.writerow([row[0], row[1], row[2], row[3], row[4], lem_row])
             # print([row[0], row[1], row[2], row[3], row[4], lem_row])
 
 outfile.close()
