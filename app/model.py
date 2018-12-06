@@ -1,6 +1,7 @@
 import csv
 import numpy as np
 import math
+import re
 import nltk
 from nltk import word_tokenize
 from nltk.stem import WordNetLemmatizer
@@ -32,6 +33,7 @@ class BM25():
         doc_count = 0
         result_dict = {}
         ref_dict = {}
+        desc_dict = {}
         try:
             query_term_weight = 1/len(search_term.split())
         except:
@@ -42,7 +44,6 @@ class BM25():
             with open(filename) as infile:
                 csv_reader = csv.reader(infile, delimiter=',')
                 for row in csv_reader:
-                    ref = row[4]
                     num_docs += 1
                     doc = row[2]
                     # wnl = WordNetLemmatizer()
@@ -62,6 +63,7 @@ class BM25():
                 csv_reader = csv.reader(infile, delimiter=',')
                 for row in csv_reader:
                     title = row[0]
+                    ref = row[4]
                     doc = row[2]
                     doc_lst = doc.split()
                     doc_term_count = doc_lst.count(term)
@@ -73,6 +75,7 @@ class BM25():
                     score = np.dot(np.dot(tf, idf), qtf)
 
                     ref_dict[title] = ref
+                    desc_dict[title] = doc
                     if title not in result_dict.keys():
                         result_dict[title] = score
                     else:
@@ -89,7 +92,7 @@ class BM25():
         for ele in sorted_results:
             if result_dict[ele] > 0:
                 count += 1
-                results_html += '<p>'+str(count)+'. '+'<a href='+ref+'>'+ele[2:-1]+'</a>'+'</p>'
+                results_html += '<h3>'+str(count)+'. '+'<a href='+ref_dict[ele]+'>'+ele[2:-1]+'</a>'+'</h3><p>'+desc_dict[ele][2:500].replace('#', '').replace('\\n', "")+'...</p>'
 
         if count > 0:
             return results_html

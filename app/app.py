@@ -20,8 +20,9 @@ def results_page():
     else:
         searchterm = ''
 
+    search_bar = '<form action="/results" method="POST"><input type="text" name="searchterm"/> <br/><input type="submit" value="Search"/></form>'
     header = '<h2>Returning datasets related to: ' + searchterm + '.</h2><br>'
-    return header + results
+    return search_bar + header + results
 
 
 if __name__=="__main__":
