@@ -2,7 +2,6 @@ from flask import Flask, render_template, request
 # from SI_650_Group_Project.app.retrieval_function import BM25
 from model import BM25
 
-
 app = Flask(__name__)
 ranker = BM25()
 # results = ranker.scorer(filename='dataset.csv', term='new')
