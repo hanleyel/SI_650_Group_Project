@@ -88,6 +88,6 @@ class BM25():
                 results_html += '<p>'+ele[1:]+'</p>'
 
         return results_html
-
-ranker = BM25()
-print(ranker.scorer('dataset.csv', search_term='Spam email'))
+#
+# ranker = BM25()
+# print(ranker.scorer('dataset.csv', search_term='Spam email'))
