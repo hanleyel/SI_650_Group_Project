@@ -85,7 +85,7 @@ class BM25():
         results_html = ''
         for ele in sorted_results:
             if result_dict[ele] > 0:
-                results_html += '<p>'+ele+'</p>'
+                results_html += '<p>'+ele[1:]+'</p>'
 
         return results_html
 
