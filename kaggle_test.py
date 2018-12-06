@@ -110,6 +110,7 @@ def metadata_extracter_p(path, page_start, page_end, temp_csv, temp_json, csv_ou
         print("\nreflist: {}\n".format(ref_list))
         ### download the metadata using key_info into the path of your choice
         for each_ref in ref_list:
+
             print(each_ref)
             json_command = 'kaggle datasets metadata {} -p "{}"'.format(each_ref, path)
             os.system(json_command)
@@ -176,6 +177,6 @@ if __name__ == '__main__':
         # path = str(sys.argv[1])
         # pages = str(sys.argv[2])
         # print("path: {}\npages: {}".format(path, pages))
-        metadata_extracter(path = akio_path, pages_to_loop=(82,85))
+        metadata_extracter(path = liz_path, pages_to_loop=(143,200))
     except:
         print("try again")
