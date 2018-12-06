@@ -16,7 +16,7 @@ def index():
 def results_page():
     if request.method == 'POST':
         searchterm = request.form['searchterm']
-        results = ranker.scorer(filename='dataset.csv', term=searchterm)
+        results = ranker.scorer(filename='dataset.csv', search_term=searchterm)
     else:
         searchterm = ''
 
