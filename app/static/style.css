@@ -1,0 +1,77 @@
+body {
+    padding: 64px auto;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 48px;
+    text-align: center;
+    font-weight: 400;
+}
+
+.topnav {
+
+    margin-top: 150px;
+}
+
+h2 {
+    margin-top: 64px;
+    margin-bottom: -16px;
+    padding-left: 10%;
+    text-align: left;
+    font-style: italic;
+    color: grey;
+    font-size: 20px;
+    font-weight: 100;
+}
+
+.keyword {
+    font-weight: 300;
+}
+
+input[type=text] {
+    min-width: 300px;
+    width: 50%;
+    height: 40px;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    border: none;
+    border-bottom: 2px solid black;
+}
+
+button {
+    margin-top: 24px;
+    font-weight: 400;
+    font-size: 16px;
+    width: 150px;
+    height: 40px;
+    color: white;
+    background-color: black;
+    border: none;
+}
+
+/* CSS for the result page*/
+
+.result {
+    padding-left: 10%;
+    padding-right: 10%;
+    text-align: left;
+    margin-bottom: 32px;
+}
+
+h3 {
+    color: dodgerblue;
+    margin-bottom: -8px;
+    font-size: 18px;
+}
+
+a:link {
+    color: dodgerblue;
+    text-decoration: none;
+}
+
+p {
+    line-height: 150%;
+    font-size: 14px;
+}

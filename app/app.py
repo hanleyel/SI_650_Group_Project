@@ -20,9 +20,11 @@ def results_page():
     else:
         searchterm = ''
 
-    search_bar = '<form action="/results" method="POST"><input type="text" name="searchterm"/> <br/><input type="submit" value="Search"/></form>'
-    header = '<h2>Returning datasets related to: ' + searchterm + '.</h2><br>'
-    return search_bar + header + results
+    css_ref = '<head><link rel="stylesheet" href="../static/style.css">'
+    font_ref = '<link href="https://fonts.googleapis.com/css?family=Lato|Roboto:300|Source+Sans+Pro" rel="stylesheet"></head>'
+    search_bar = '<form action="/results" method="POST"><input type="text" name="searchterm"/> <br/><button type="submit" value="Search">Search</button></form>'
+    header = '<h2>Returning datasets related to: <span class="keyword">' + searchterm + '</span></h2><br>'
+    return css_ref + font_ref + search_bar + header + results
 
 
 if __name__=="__main__":

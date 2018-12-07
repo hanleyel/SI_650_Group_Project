@@ -111,7 +111,7 @@ class BM25():
         for ele in sorted_results:
             if result_dict[ele] > 0:
                 count += 1
-                results_html += '<h3>'+str(count)+'. '+'<a href='+ref_dict[ele]+'>'+ele[2:-1]+'</a>'+'</h3><p>'+desc_dict[ele][2:500].replace('#', '').replace('\\n', "")+'...</p>'
+                results_html += '<div class="result"><h3>'+str(count)+'. '+'<a href='+ref_dict[ele]+'>'+ele[2:-1]+'</a>'+'</h3><p>'+desc_dict[ele][2:500].replace('#', '').replace('\\n', "")+'...</p></div>'
 
         if count > 0:
             return results_html

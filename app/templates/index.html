@@ -3,25 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>SI 650 Search Demo</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Roboto:300|Source+Sans+Pro" rel="stylesheet">
 </head>
 <body>
-<h1>SI 650 Search Demo</h1>
 
 <div class="topnav">
+    <h1>SI 650 Search Demo</h1>
     <div class="search-container">
-        <!--<form action="results.html">-->
-            <!--<input type="text" placeholder="Search.." name="search">-->
-            <!--<button type="submit">Submit</button>-->
-        <!--</form>-->
-
         <form action="/results" method="POST">
-
             <input type="text" name="searchterm"/> <br/>
-
-            <input type="submit" value="Search"/>
-
+            <button type="submit" value="Search">Search</button>
         </form>
-
     </div>
 </div>
 

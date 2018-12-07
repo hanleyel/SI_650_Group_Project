@@ -32,7 +32,6 @@ with open(infilename, 'r') as infile:
 
             lem_row = ' '.join(lemmatized_tokens)
             csv_writer.writerow([row[0], row[1], row[2], row[3], row[4], lem_row])
-            # print([row[0], row[1], row[2], row[3], row[4], lem_row])
 
 outfile.close()
 infile.close()
